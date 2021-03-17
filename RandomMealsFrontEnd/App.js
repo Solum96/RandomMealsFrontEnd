@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 
 export default function App() {
+    let i = 1;
     return (
       <SafeAreaView style={styles.container}>
         <Text>
@@ -13,18 +14,7 @@ export default function App() {
         <StatusBar style="auto" />
 
         <View style={styles.row}>
-          <View style={styles.itemCard}>
-            <Text>
-              Id: 1
-              Namn: Nils Lundell
-            </Text>
-          </View>
-          <View style={styles.itemCard}>
-            <Text>
-              Id: 1
-              Namn: Nils Lundell
-            </Text>
-          </View>
+          <Text>Hej på dig</Text>
         </View>
     </SafeAreaView>
   );
@@ -47,7 +37,7 @@ const styles = StyleSheet.create({
   },
   itemCard: {
     margin: 5,
-    flex: 0.5,
+    flex: 2,
     alignItems: 'center',
     width: '33%',
   }
