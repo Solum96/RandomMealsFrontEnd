@@ -1,21 +1,22 @@
-import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import React from "react";
-import { render } from "react-dom";
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Home } from "./screens/Home/Home";
+import { Details } from "./screens/Details/Details";
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Image source={require("./assets/favicon.png")} />
-      <StatusBar style="auto" />
-
-      <View style={styles.row}>
-        <View style={styles.itemCard}>
-          <Text>Yeet</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Details" component={Details} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
