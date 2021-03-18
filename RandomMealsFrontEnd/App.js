@@ -19,9 +19,7 @@ export default function App() {
             let iconName;
 
             if (route.name === "Home") {
-              iconName = focused
-                ? "ios-information-circle"
-                : "ios-information-circle-outline";
+              iconName = focused ? "ios-home-sharp" : "ios-home-outline";
             } else if (route.name === "Details") {
               iconName = focused ? "ios-list" : "ios-list";
             }
