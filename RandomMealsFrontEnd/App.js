@@ -15,8 +15,8 @@ export default function App() {
   return (
     <NavigationContainer style={styles.container}>
       <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+        screenOptions={({ route }) => ({y
+          : ({ focused, color, size }) => {
             let iconName;
 
             if (route.name === 'Home') {
@@ -36,7 +36,7 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name='Add Food' component={AddDish} />
+        <Tab.Screen name='Add Dishes' component={AddDish} />
         <Tab.Screen name='Home' component={Home} />
         <Tab.Screen name='Details' component={Details} />
       </Tab.Navigator>
