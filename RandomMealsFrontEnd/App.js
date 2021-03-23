@@ -1,6 +1,14 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Platform, StatusBar } from 'react-native';
+import {
+  StyleSheet,
+  Platform,
+  StatusBar,
+  ImageBackground,
+  View,
+  Text,
+  TouchableHighlight,
+} from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -8,39 +16,30 @@ import { Ionicons } from '@expo/vector-icons';
 import { Home } from './screens/Home/Home';
 import { Details } from './screens/Details/Details';
 import { AddDish } from './screens/AddDish/AddDish';
+import { NavigationWrapper } from './screens/NavigationWrapper/NavigationWrapper';
+import { render } from 'react-dom';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const image = {
+    uri:
+      'https://phonewallpaperhd.com/wp-content/uploads/2020/09/Food-iPhone-7-Wallpaper-HD.jpg',
+  };
+
+  function renderNavigation() {
+    return render(<NavigationWrapper></NavigationWrapper>);
+  }
+
   return (
-    <NavigationContainer style={styles.container}>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = focused ? 'ios-home-sharp' : 'ios-home-outline';
-            } else if (route.name === 'Details') {
-              iconName = focused ? 'ios-list' : 'ios-list';
-            } else if (route.name === 'Add Food') {
-              iconName = focused ? 'add-circle' : 'add-circle-outline';
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
+    <ImageBackground source={image} style={styles.image}>
+      <TouchableHighlight
+        style={styles.proceedButton}
+        onPress={renderNavigation}
       >
-        <Tab.Screen name='Add Food' component={AddDish} />
-        <Tab.Screen name='Home' component={Home} />
-        <Tab.Screen name='Details' component={Details} />
-      </Tab.Navigator>
-    </NavigationContainer>
+        <Text style={styles.buttonText}>Start Cooking!</Text>
+      </TouchableHighlight>
+    </ImageBackground>
   );
 }
 
@@ -51,5 +50,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'flex-end',
+  },
+  proceedButton: {
+    backgroundColor: 'tomato',
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: '#fff',
+    fontSize: 20,
   },
 });
