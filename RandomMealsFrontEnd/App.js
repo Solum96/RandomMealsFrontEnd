@@ -10,36 +10,26 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { Home } from './screens/Home/Home';
 import { Details } from './screens/Details/Details';
 import { AddDish } from './screens/AddDish/AddDish';
 import { NavigationWrapper } from './screens/NavigationWrapper/NavigationWrapper';
-import { render } from 'react-dom';
+import { StartScreen } from './screens/StartScreen/StartScreen';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
-  const image = {
-    uri:
-      'https://phonewallpaperhd.com/wp-content/uploads/2020/09/Food-iPhone-7-Wallpaper-HD.jpg',
-  };
-
-  function renderNavigation() {
-    return render(<NavigationWrapper></NavigationWrapper>);
-  }
-
   return (
-    <ImageBackground source={image} style={styles.image}>
-      <TouchableHighlight
-        style={styles.proceedButton}
-        onPress={renderNavigation}
-      >
-        <Text style={styles.buttonText}>Start Cooking!</Text>
-      </TouchableHighlight>
-    </ImageBackground>
+    <NavigationContainer>
+      <Stack.Navigator headerMode='none'>
+        <Stack.Screen name='StartScreen' component={StartScreen} />
+        <Stack.Screen name='TabNavigator' component={NavigationWrapper} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
