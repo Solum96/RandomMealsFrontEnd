@@ -10,9 +10,9 @@ export const Home = () => {
       <View style={styles.button}>
         <Button
           color= "#f2c266"
-          title="  New List  "
+          title="  Ny Lista  "
           style= {styles.button}
-          onPress={() => Alert.alert('New foodlist')}
+          onPress={() => Alert.alert('Ny matlista- funktionalitet')}
         />
       </View>
       <Text>
