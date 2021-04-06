@@ -2,9 +2,10 @@ import styled from 'styled-components/native';
 
 export const HomeWrapper = styled.SafeAreaView`
   flex: 1;
-  background-color: #fff;
+  background-color: #3b4e76;
   align-items: center;
   justify-content: center;
+  
 `;
 
 export const HomeRow = styled.View`

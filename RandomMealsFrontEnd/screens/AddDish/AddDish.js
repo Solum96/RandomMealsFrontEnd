@@ -5,6 +5,7 @@ import { AddDishTextInput, AddDishWrapper } from './AddDish.style';
 
 export const AddDish = () => {
   return (
+  
     <AddDishWrapper>
       <Text style={styles.dishTitle}> Do you want to add a new dish?</Text>
       <Text style={styles.subtitle}>Start by naming your food baby...</Text>
