@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-
+// #81a857
 export const HomeWrapper = styled.SafeAreaView`
   flex: 1;
   background-color: #3b4e76;
