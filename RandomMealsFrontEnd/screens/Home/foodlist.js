@@ -71,14 +71,14 @@ export default List
 const styles = StyleSheet.create ({
    container: {
       margin: 6,
-      padding: 5,
+      padding: 4,
       flex: 1,
       paddingRight: 75,
       backgroundColor: '#fff',
    },
     text:{
      display: 'flex',
-     fontSize: 20,
+     fontSize: 15,
      color: '#333c',
      marginLeft: 20,
    },
