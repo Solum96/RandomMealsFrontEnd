@@ -10,13 +10,14 @@ import {
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
+import { HomeWrapper } from '../Home/Home.styles';
 
 export const StartScreen = () => {
   const navigation = useNavigation();
 
   const image = {
     uri:
-      'https://phonewallpaperhd.com/wp-content/uploads/2020/09/Food-iPhone-7-Wallpaper-HD.jpg',
+      'https://nadiashealthykitchen.com/wp-content/uploads/2020/01/tofu-quinoa-sushi-bowl9.jpg',
   };
   return (
     <ImageBackground source={image} style={styles.image}>
@@ -24,12 +25,14 @@ export const StartScreen = () => {
         style={styles.proceedButton}
         onPress={() => {
           navigation.navigate('TabNavigator', {
-            screen: 'Home',
+            screen: 'Hem',
             params: { title: 'Hej på dig' },
           });
         }}
       >
-        <Text style={styles.buttonText}>Start Cooking!</Text>
+        <Text style={styles.buttonText}>
+          Start Cooking!
+        </Text>
       </TouchableHighlight>
     </ImageBackground>
   );
@@ -41,7 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    paddingTop:
+      Platform.OS === 'android'
+        ? StatusBar.currentHeight
+        : 0,
   },
   image: {
     flex: 1,

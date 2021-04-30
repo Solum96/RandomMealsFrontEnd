@@ -10,15 +10,14 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  NavigationContainer,
+  useNavigation,
+} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons } from '@expo/vector-icons';
-import { Home } from './screens/Home/Home';
-import { Details } from './screens/Details/Details';
-import { AddDish } from './screens/AddDish/AddDish';
 import { NavigationWrapper } from './screens/NavigationWrapper/NavigationWrapper';
 import { StartScreen } from './screens/StartScreen/StartScreen';
+import { DishInfo } from './screens/DishInfo/DishInfo';
 
 const Stack = createStackNavigator();
 
@@ -26,8 +25,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode='none'>
-        <Stack.Screen name='StartScreen' component={StartScreen} />
-        <Stack.Screen name='TabNavigator' component={NavigationWrapper} />
+        <Stack.Screen
+          name='StartScreen'
+          component={StartScreen}
+        />
+        <Stack.Screen
+          name='TabNavigator'
+          component={NavigationWrapper}
+        />
+        <Stack.Screen
+          name='DishInfo'
+          component={DishInfo}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -39,7 +48,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    paddingTop:
+      Platform.OS === 'android'
+        ? StatusBar.currentHeight
+        : 0,
   },
   image: {
     flex: 1,
