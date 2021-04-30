@@ -1,31 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { HomeCard, HomeRow, HomeWrapper, } from './Home.styles';
-import { Text, Image, Button, StyleSheet, Alert, View} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, SafeAreaView, } from 'react-native';
 import List from './foodlist.js'
 
 export const Home = () => {
   return (
-    <HomeWrapper>
+    <SafeAreaView style={styles.safeHome}>
       <View style={styles.button}>
-        <Button
-          color= "#f2c266"
-          title="  Ny Lista  "
-          style= {styles.button}
-          onPress={() => Alert.alert('Ny matlista- funktionalitet')}
-        />
+        <TouchableOpacity
+          onPress={() => {}} 
+        >
+          <Text style={styles.buttonText}>⇄</Text>
+        </TouchableOpacity>
       </View>
       <Text>
           <List />
       </Text>
-      <Image source={require('../../assets/favicon.png')} />
-      <StatusBar style='auto' />
-      <HomeRow>
-        <HomeCard>
-          <Text>Yeet</Text>
-        </HomeCard>
-      </HomeRow>
-    </HomeWrapper>
+      <StatusBar style='auto'/>
+
+    </SafeAreaView>
   );
 };
 export default Home
@@ -34,10 +27,23 @@ const styles = StyleSheet.create ({
 button:{
     flexDirection: 'row',
     alignSelf:'flex-start',
-    marginBottom: 15,
+    marginBottom: 20,
     justifyContent: 'center',
     marginHorizontal: 48,
-    width: 100,
-    height: 40,
-}
+    width: 60,
+    height: 60,
+    fontWeight: "bold",
+    fontSize: 40,
+},
+buttonText: {
+        fontSize: 50,
+        fontWeight: '400',
+        color: "#fff",
+    },
+safeHome:{
+    flex: 1,
+    backgroundColor: '#199145',
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });

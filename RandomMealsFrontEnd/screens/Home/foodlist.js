@@ -56,9 +56,9 @@ class List extends Component {
                      <Text style = {styles.day}>
                         {item.veckodag}</Text>
                      <Text style = {styles.text}>
-                        {'      '}
-                        {item.namn}
-                     </Text>
+                       {'      '}
+                       {item.namn}
+                    </Text>
                   </TouchableOpacity>
                ))
             }

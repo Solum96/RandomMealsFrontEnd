@@ -21,7 +21,7 @@ export const AddDish = () => {
 };
 
 const styles = StyleSheet.create({
-  dishTitle: {
+   dishTitle: {
     fontWeight: 'bold',
     fontSize: 25,
     color: '#f2c266',
