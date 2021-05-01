@@ -1,19 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {
-  HomeCard,
-  HomeRow,
-  HomeWrapper,
-} from './Home.styles';
-import {
-  Text,
-  Image,
-  Button,
-  StyleSheet,
-  Alert,
-  View,
-  ImageBackground,
-} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, SafeAreaView, } from 'react-native';
 import { List } from './foodlist';
 
 export const Home = () => {
@@ -22,33 +9,20 @@ export const Home = () => {
       'https://phonewallpaperhd.com/wp-content/uploads/2020/09/Food-iPhone-7-Wallpaper-HD.jpg',
   };
   return (
-    <HomeWrapper>
-      <ImageBackground
-        source={image}
-        style={{ resizeMode: 'cover' }}
-      >
-        <View style={styles.button}>
-          <Button
-            color='#f2c266'
-            title='  Ny Lista  '
-            style={styles.button}
-            onPress={() =>
-              Alert.alert('Ny matlista- funktionalitet')
-            }
-          />
-        </View>
-        <List />
-        <Image
-          source={require('../../assets/favicon.png')}
-        />
-        <StatusBar style='auto' />
-        <HomeRow>
-          <HomeCard>
-            <Text>Yeet</Text>
-          </HomeCard>
-        </HomeRow>
-      </ImageBackground>
-    </HomeWrapper>
+    <SafeAreaView style={styles.safeHome}>
+      <View style={styles.button}>
+        <TouchableOpacity
+          onPress={() => {}} 
+        >
+          <Text style={styles.buttonText}>⇄</Text>
+        </TouchableOpacity>
+      </View>
+      <Text>
+          <List />
+      </Text>
+      <StatusBar style='auto'/>
+
+    </SafeAreaView>
   );
 };
 export default Home;
@@ -56,11 +30,24 @@ export default Home;
 const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
-    alignSelf: 'flex-start',
-    marginBottom: 15,
+    alignSelf:'flex-start',
+    marginBottom: 20,
     justifyContent: 'center',
     marginHorizontal: 48,
-    width: 100,
-    height: 40,
-  },
+    width: 60,
+    height: 60,
+    fontWeight: "bold",
+    fontSize: 40,
+},
+buttonText: {
+        fontSize: 50,
+        fontWeight: '400',
+        color: "#fff",
+    },
+safeHome:{
+    flex: 1,
+    backgroundColor: '#199145',
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });
