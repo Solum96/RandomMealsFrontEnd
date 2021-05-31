@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+export default {
+    products,
+}
 import {
   Text,
   View,
@@ -92,4 +95,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-const styles = StyleSheet.create ({
+

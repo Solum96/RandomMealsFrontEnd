@@ -1,34 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, View, SafeAreaView, } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, SafeAreaView, } from 'react-native';
+import {Scrambler} from '../../Components/Scrambler'
 import { List } from './foodlist';
 
 export const Home = () => {
-  const image = {
-    uri:
-      'https://phonewallpaperhd.com/wp-content/uploads/2020/09/Food-iPhone-7-Wallpaper-HD.jpg',
-  };
+
   return (
     <SafeAreaView style={styles.safeHome}>
-      <View style={styles.button}>
-        <TouchableOpacity
-          onPress={() => {}} 
-        >
-          <Text style={styles.buttonText}>⇄</Text>
-        </TouchableOpacity>
-      </View>
+        <Scrambler/>
       <Text>
           <List />
       </Text>
       <StatusBar style='auto'/>
-
     </SafeAreaView>
   );
 };
-export default Home;
+export default Home
 
-const styles = StyleSheet.create({
-  button: {
+const styles = StyleSheet.create ({
+button:{
     flexDirection: 'row',
     alignSelf:'flex-start',
     marginBottom: 20,
