@@ -1,25 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, SafeAreaView, } from 'react-native';
-import {Scrambler} from '../../Components/Scrambler'
+import {
+  Text,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
+import { Scrambler } from '../../Components/Scrambler';
 import { List } from './foodlist';
 
 export const Home = () => {
-
   return (
     <SafeAreaView style={styles.safeHome}>
-        <Scrambler/>
+      <Scrambler />
       <Text>
-          <List />
+        <List />
       </Text>
-      <StatusBar style='auto'/>
+      <StatusBar style='auto' />
     </SafeAreaView>
   );
 };
-export default Home
+export default Home;
 
-const styles = StyleSheet.create ({
-button:{
+const styles = StyleSheet.create({
+  button: {
     flexDirection: 'row',
     alignSelf: 'flex-start',
     marginBottom: 20,

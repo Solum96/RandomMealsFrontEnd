@@ -16,7 +16,7 @@ export const DishInfo = (route) => {
   const data = route.route.params.item;
   return (
     <SafeAreaView style={styles.container}>
-      <Text> {data.namn}</Text>
+      <Text> {data.name}</Text>
       <Text> {data.id}</Text>
       {data.instructions.map((item, index) => (
         <Text>- {item}</Text>

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-export default {
-    products,
-}
 import {
   Text,
   View,
@@ -9,65 +6,16 @@ import {
   StyleSheet,
   StatusBar,
 } from 'react-native';
+import WeekMenu from '../../Hooks/WeekMenu';
 
 import { useNavigation } from '@react-navigation/core';
 
 export const List = () => {
-  const items = {
-    names: [
-      {
-        id: 0,
-        veckodag: 'Måndag',
-        namn: 'Korvstroganoff',
-        instructions: [
-          'gör så här',
-          'och sen så här',
-          'till sist kan du lägga dig på marken och gråta lite',
-        ],
-        ingredients: [
-          'Korv',
-          'Stroganoff',
-          'Ris',
-          'Kärlek',
-        ],
-      },
-      {
-        id: 1,
-        veckodag: 'Tisdag',
-        namn: 'Fnösfärsbös Å spaghetti',
-      },
-      {
-        id: 2,
-        veckodag: 'Onsdag',
-        namn: 'Grillad aubergine',
-      },
-      {
-        id: 3,
-        veckodag: 'Torsdag',
-        namn: 'Köttbullar å mos',
-      },
-      {
-        id: 4,
-        veckodag: 'Fredag',
-        namn: 'Tofubowl',
-      },
-      {
-        id: 5,
-        veckodag: 'Lördag',
-        namn: 'Restfest deluxe',
-      },
-      {
-        id: 6,
-        veckodag: 'Söndag',
-        namn: 'Korv och makaroner',
-      },
-    ],
-  };
   const navigation = useNavigation();
 
   return (
     <View style={styles.view}>
-      {items.names.map((item, index) => (
+      {WeekMenu().map((item, index) => (
         <TouchableOpacity
           key={item.id}
           style={styles.container}
@@ -80,7 +28,7 @@ export const List = () => {
           <Text style={styles.day}>{item.veckodag}</Text>
           <Text style={styles.text}>
             {'      '}
-            {item.namn}
+            {item.name}
           </Text>
         </TouchableOpacity>
       ))}
@@ -113,4 +61,3 @@ const styles = StyleSheet.create({
         : 0,
   },
 });
-

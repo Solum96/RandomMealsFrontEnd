@@ -15,8 +15,7 @@ export const StartScreen = () => {
   const navigation = useNavigation();
 
   const image = {
-    uri:
-      'https://nadiashealthykitchen.com/wp-content/uploads/2020/01/tofu-quinoa-sushi-bowl9.jpg',
+    uri: 'https://nadiashealthykitchen.com/wp-content/uploads/2020/01/tofu-quinoa-sushi-bowl9.jpg',
   };
   return (
     <ImageBackground source={image} style={styles.image}>

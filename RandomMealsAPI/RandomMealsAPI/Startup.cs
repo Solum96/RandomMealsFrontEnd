@@ -28,6 +28,16 @@ namespace RandomMealsAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:5001/api/dishitems");
+                    });
+            });
+
             services.AddDbContext<DishItemContext>(opt => opt.UseInMemoryDatabase("RandomMealsDatabase"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -44,9 +54,14 @@ namespace RandomMealsAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
