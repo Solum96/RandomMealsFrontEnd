@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
-import { HomeWrapper } from '../Home/Home.styles';
 
 export const StartScreen = () => {
   const navigation = useNavigation();

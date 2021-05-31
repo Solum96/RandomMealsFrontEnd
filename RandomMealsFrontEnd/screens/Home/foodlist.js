@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
+  StatusBar,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
@@ -15,6 +16,17 @@ export const List = () => {
         id: 0,
         veckodag: 'Måndag',
         namn: 'Korvstroganoff',
+        instructions: [
+          'gör så här',
+          'och sen så här',
+          'till sist kan du lägga dig på marken och gråta lite',
+        ],
+        ingredients: [
+          'Korv',
+          'Stroganoff',
+          'Ris',
+          'Kärlek',
+        ],
       },
       {
         id: 1,
@@ -51,15 +63,14 @@ export const List = () => {
   const navigation = useNavigation();
 
   return (
-    <View>
+    <View style={styles.view}>
       {items.names.map((item, index) => (
         <TouchableOpacity
           key={item.id}
           style={styles.container}
           onPress={() => {
             navigation.navigate('DishInfo', {
-              itemId: item.id,
-              name: item.namn,
+              item: item,
             });
           }}
         >
@@ -91,5 +102,11 @@ const styles = StyleSheet.create({
   day: {
     fontWeight: 'bold',
   },
+  view: {
+    display: 'flex',
+    paddingTop:
+      Platform.OS === 'android'
+        ? StatusBar.currentHeight
+        : 0,
+  },
 });
-const styles = StyleSheet.create ({

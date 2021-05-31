@@ -1,6 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet, View, SafeAreaView, } from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  SafeAreaView,
+} from 'react-native';
 import { List } from './foodlist';
 
 export const Home = () => {
@@ -11,17 +17,12 @@ export const Home = () => {
   return (
     <SafeAreaView style={styles.safeHome}>
       <View style={styles.button}>
-        <TouchableOpacity
-          onPress={() => {}} 
-        >
+        <TouchableOpacity onPress={() => {}}>
           <Text style={styles.buttonText}>⇄</Text>
         </TouchableOpacity>
       </View>
-      <Text>
-          <List />
-      </Text>
-      <StatusBar style='auto'/>
-
+      <List />
+      <StatusBar style='auto' />
     </SafeAreaView>
   );
 };
@@ -30,24 +31,28 @@ export default Home;
 const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
-    alignSelf:'flex-start',
+    alignSelf: 'flex-start',
     marginBottom: 20,
     justifyContent: 'center',
     marginHorizontal: 48,
     width: 60,
     height: 60,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 40,
-},
-buttonText: {
-        fontSize: 50,
-        fontWeight: '400',
-        color: "#fff",
-    },
-safeHome:{
+  },
+  buttonText: {
+    fontSize: 50,
+    fontWeight: '400',
+    color: '#fff',
+  },
+  safeHome: {
     flex: 1,
     backgroundColor: '#199145',
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop:
+      Platform.OS === 'android'
+        ? StatusBar.currentHeight
+        : 0,
+  },
 });
