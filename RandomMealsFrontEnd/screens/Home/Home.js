@@ -5,16 +5,12 @@ import {
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
-import { Scrambler } from '../../Components/Scrambler';
-import { List } from './foodlist';
+import FoodListView from '../../Components/FoodList/FoodListView';
 
 export const Home = () => {
   return (
     <SafeAreaView style={styles.safeHome}>
-      <Scrambler />
-      <Text>
-        <List />
-      </Text>
+      <FoodListView />
       <StatusBar style='auto' />
     </SafeAreaView>
   );

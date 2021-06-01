@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
   TouchableOpacity,
   StyleSheet,
   StatusBar,
+  Button,
 } from 'react-native';
-import WeekMenu from '../../Hooks/WeekMenu';
 
 import { useNavigation } from '@react-navigation/core';
 
-export const List = () => {
+export let List = (props) => {
   const navigation = useNavigation();
-
+  let days = [
+    'Måndag',
+    'Tisdag',
+    'Onsdag',
+    'Torsdag',
+    'Fredag',
+    'Lördag',
+    'Söndag',
+  ];
   return (
     <View style={styles.view}>
-      {WeekMenu().map((item, index) => (
+      {props.menu.map((item, index) => (
         <TouchableOpacity
           key={item.id}
           style={styles.container}
@@ -25,7 +33,7 @@ export const List = () => {
             });
           }}
         >
-          <Text style={styles.day}>{item.veckodag}</Text>
+          <Text style={styles.day}>{days[index]}</Text>
           <Text style={styles.text}>
             {'      '}
             {item.name}

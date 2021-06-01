@@ -4,8 +4,27 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import { foodScrambler } from '../Hooks/WeekMenu';
-export const Scrambler = () => {
+
+import { GetFoodItemsFromApi } from '../../Hooks/GetFoodItems';
+
+export const Scrambler = (props) => {
+  function foodScrambler() {
+    console.log('foodscramble startar');
+    let idArr = [];
+    let tempMenu = [];
+    let allItems = GetFoodItemsFromApi();
+    let itemIndexes = allItems.length;
+    for (let i = 0; i < 7; i++) {
+      let dishId = Math.floor(Math.random() * itemIndexes);
+      if (!idArr.includes(dishId)) {
+        idArr.push(dishId);
+        tempMenu.push(allItems[dishId]);
+      } else {
+        i--;
+      }
+    }
+    props.onPress(tempMenu);
+  }
   return (
     <TouchableOpacity
       style={styles.button}
