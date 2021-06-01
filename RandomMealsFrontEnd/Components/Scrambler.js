@@ -4,12 +4,14 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import foodScrambler from '../Hooks/WeekMenu';
+import { foodScrambler } from '../Hooks/WeekMenu';
 export const Scrambler = () => {
   return (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => foodScrambler()}
+      onPress={() => {
+        foodScrambler();
+      }}
     >
       <Text style={styles.buttonText}>⇄</Text>
     </TouchableOpacity>
