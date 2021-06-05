@@ -7,9 +7,12 @@ import {
   ImageBackground,
   Text,
   TouchableHighlight,
+  View,
+  Image,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
+import { withTheme } from 'styled-components/native';
 
 export const StartScreen = () => {
   const navigation = useNavigation();
@@ -19,6 +22,18 @@ export const StartScreen = () => {
   };
   return (
     <ImageBackground source={image} style={styles.image}>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 1000,
+        }}
+      >
+        <Image
+          source={require('../../assets/highlightburger-frame.png')}
+          style={{ height: 100, width: 120 }}
+        ></Image>
+      </View>
       <TouchableHighlight
         style={styles.proceedButton}
         onPress={() => {
@@ -51,6 +66,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'flex-end',
+    backgroundColor: 'black',
   },
   proceedButton: {
     backgroundColor: 'tomato',

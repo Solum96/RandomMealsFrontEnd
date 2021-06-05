@@ -38,7 +38,10 @@ export default function App() {
         <Stack.Screen
           name='DishInfo'
           component={DishInfo}
-          options={{ headerShown: true }}
+          options={{
+            headerShown: true,
+            headerBackTitle: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

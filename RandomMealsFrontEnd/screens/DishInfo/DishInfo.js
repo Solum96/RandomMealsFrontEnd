@@ -5,6 +5,7 @@ import {
   Platform,
   StatusBar,
   ImageBackground,
+  View,
   Text,
   TouchableHighlight,
   SafeAreaView,
@@ -16,13 +17,17 @@ export const DishInfo = (route) => {
   const data = route.route.params.item;
   return (
     <SafeAreaView style={styles.container}>
-      <Text> {data.name}</Text>
-      <Text> {data.id}</Text>
-      {data.instructions.map((item, index) => (
+      <Text style={styles.title}> {data.name} </Text>
+      {data.ingredients.map((item, index) => (
         <Text>- {item}</Text>
       ))}
-      <Text>------------------------------------</Text>
-      {data.ingredients.map((item, index) => (
+      <View
+        style={{
+          borderBottomColor: 'black',
+          borderBottomWidth: 17,
+        }}
+      />
+      {data.instructions.map((item, index) => (
         <Text>
           {index + 1}. {item}
         </Text>
@@ -42,20 +47,5 @@ const styles = StyleSheet.create({
         ? StatusBar.currentHeight
         : 0,
   },
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'flex-end',
-  },
-  proceedButton: {
-    backgroundColor: 'tomato',
-    height: 70,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    fontWeight: 'bold',
-    color: '#fff',
-    fontSize: 20,
-  },
+  title: { fontSize: 20 },
 });
