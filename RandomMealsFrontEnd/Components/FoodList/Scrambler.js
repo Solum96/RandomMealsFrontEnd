@@ -9,7 +9,6 @@ import { GetFoodItemsFromApi } from '../../Hooks/GetFoodItems';
 
 export const Scrambler = (props) => {
   function foodScrambler() {
-    console.log('foodscramble startar');
     let idArr = [];
     let tempMenu = [];
     let allItems = GetFoodItemsFromApi();

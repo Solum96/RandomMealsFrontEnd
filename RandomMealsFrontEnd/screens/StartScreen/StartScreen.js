@@ -32,14 +32,13 @@ export const StartScreen = () => {
         <Image
           source={require('../../assets/highlightburger-frame.png')}
           style={{ height: 100, width: 120 }}
-        ></Image>
+        />
       </View>
       <TouchableHighlight
         style={styles.proceedButton}
         onPress={() => {
           navigation.navigate('TabNavigator', {
             screen: 'Hem',
-            params: { title: 'Hej på dig' },
           });
         }}
       >
